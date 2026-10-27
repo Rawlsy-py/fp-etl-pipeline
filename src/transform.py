@@ -1,8 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv("data/yellow_tripdata_2026.csv")
-
-
 def parse_schema(df: pd.DataFrame) -> pd.DataFrame:
     return df.assign(
         pickup_datetime=pd.to_datetime(df["pickup_datetime"], errors="coerce"),
@@ -12,5 +9,6 @@ def parse_schema(df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-df_fixed = parse_schema(df=df)
-print(df_fixed)
+if __name__ == "__main__":
+    df = pd.read_csv("data/yellow_tripdata_2026.csv")
+    print(parse_schema(df=df))
