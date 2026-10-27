@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def parse_schema(df: pd.DataFrame) -> pd.DataFrame:
     return df.assign(
         pickup_datetime=pd.to_datetime(df["pickup_datetime"], errors="coerce"),
